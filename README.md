@@ -1,2 +1,3 @@
 # Primeiro-Projeto-MVC
-Primeiro Projeto desenvolvido em ASP NET MVC pela COTI Informática.
+Primeiro projeto desenvolvido no curso WEBDeveloper C# .NET da COTI Informática utilizando o ASP.NET FrameWork entity framework e o SQL Database Local.
+
