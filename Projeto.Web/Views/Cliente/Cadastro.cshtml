@@ -1,0 +1,40 @@
+﻿<!-- Classe MODEL desta página -->
+@model Projeto.Web.Models.ClienteViewModelCadastro
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h4>Cadastro de Clientes</h4>
+Para inserir um novo cliente, informe os dados abaixo:<br />
+<a href="/Home">Voltar</a>
+<br /><br />
+
+<!-- Criando um formulário -->
+@using (Html.BeginForm())
+{
+      <div class="col-md-4">
+
+          @Html.LabelFor(model => model.Nome, new { @class = "form-label" }) <br />
+          @Html.TextBoxFor(model => model.Nome, "", new { @class = "form-control", @placeholder = "Digite o nome do cliente" })
+          <span style="color: red;">
+              @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+          </span>
+          <br /><br />
+
+          @Html.LabelFor(model => model.Email, new { @class = "form-label" }) <br />
+          @Html.TextBoxFor(model => model.Email, "", new { @class = "form-control", @placeholder = "Digite o nome do cliente" })
+          <span style="color: red;">
+              @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+          </span>
+          <br /><br />
+
+          <input type="submit" value="Cadastrar Cliente"
+                 class="btn btn-default" />
+          <br />
+          <p>
+              @ViewBag.Mensagem
+          </p>
+
+      </div>
+}

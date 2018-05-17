@@ -1,0 +1,36 @@
+﻿<!-- Classe de modelo da página.. -->
+@model Projeto.Web.Models.ClienteViewModelConsulta
+
+@{    
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h4>Detalhes do Cliente</h4>
+<a href="/Cliente/Consulta">Voltar</a> para a página de consulta.
+<hr/>
+
+@ViewBag.Mensagem
+
+<div class="col-md-5">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3>Dados do Cliente</h3>
+        </div>
+        <div class="panel-body">
+
+            <label>Código: @Model.IdCliente </label>
+            <br/>
+
+            <label>Nome do Cliente: @Model.Nome </label>
+            <br/>
+
+            <label>Email: @Model.Email </label>
+            <br/>
+
+            <label>Data de Cadastro: @Model.DataCadastro </label>
+            <br/>
+
+        </div>
+    </div>
+</div>
+

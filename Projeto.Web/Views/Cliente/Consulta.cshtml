@@ -1,0 +1,65 @@
+﻿<!-- Classe de modelo da página -->
+@model List<Projeto.Web.Models.ClienteViewModelConsulta>
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h4>Consulta de Clientes</h4>
+Relação de Clientes cadastrados. <br />
+<a href="/Home">Voltar</a>
+<br /><br />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome do Cliente</th>
+            <th>Endereço de Email</th>
+            <th>Data de Cadastro</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <!-- Varrer a lista de clientes -->
+        @foreach (var model in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(item => model.IdCliente) </td>
+                <td> @Html.DisplayFor(item => model.Nome) </td>
+                <td> @Html.DisplayFor(item => model.Email) </td>
+                <td> @Html.DisplayFor(item => model.DataCadastro) </td>
+                <td>
+
+                    <!-- Links -->
+                    @Html.ActionLink("Visualizar", "Detalhes",
+                                         new { id = model.IdCliente },
+                                         new { @class = "btn btn-warning btn-sm" })
+
+                    @Html.ActionLink("Excluir", "Exclusao",
+                                         new { id = model.IdCliente },
+                                         new
+                                         {
+                                             @class = "btn btn-danger btn-sm",
+                                             @onclick = "return confirm('Deseja excluir este Cliente?');"
+                                         })
+
+                    @Html.ActionLink("Atualizar", "Edicao",
+                                         new { id = model.IdCliente },
+                                         new { @class = "btn btn-primary btn-sm" })
+
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5">
+                Quantidade de Clientes: @Model.Count()
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
